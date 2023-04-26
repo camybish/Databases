@@ -14,11 +14,8 @@ book_repository.all.each do |book|
 end
 =end
 
-book_1, book_2 = book_repository
-
-
 # puts "1 - #{book_1.@title} - #{book_1.@author_name}"
 
 book_repository.all.each do |book|
     puts "#{book.id} - #{book.title} - #{book.author_name}"
-  end
+end
