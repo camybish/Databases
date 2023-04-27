@@ -121,6 +121,12 @@ class AlbumRepository
     # Returns an array of Album objects.
   end
 
+  def find(id)
+    # executes the SQL queery(slay):
+    # SELECT id, name, genre FROM artists WHERE id = $1;
+
+    # Returns a single Artist object
+  end
 end
 ```
 
@@ -143,10 +149,29 @@ albums.length #=> 2
 albums.first.title #=> 'Guillotine'
 albums.first.artist_id # => '1'
 
+# 2
 # Get all albums when there are none in the database
 
 repo = AlbumRepository.new
 albums = repo.all #=> []
+
+# 3 
+# Get a single artist 
+
+repo = ArtistRepository.new
+artist = repo.find(1)
+
+artist.name # => 'Death Grips'
+artist.genre # => 'Alt Rap'
+
+# 3 
+# Get a different artist 
+
+repo = ArtistRepository.new
+artist = repo.find(2)
+
+artist.name # => 'Kaytranada'
+artist.genre # => 'House'
 
 ```
 

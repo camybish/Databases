@@ -22,4 +22,20 @@ RSpec.describe ArtistRepository do
         expect(artists.first.id).to eq('1')
         expect(artists.first.name).to eq('Death Grips')
     end
+
+    it 'returns a single artist - Death Grips' do 
+        repo = ArtistRepository.new
+        artist = repo.find(1)
+
+        expect(artist.name).to eq("Death Grips")
+        expect(artist.genre).to eq("Alt Rap")
+    end
+
+    xit 'returns a single artist - Kaytranada' do 
+        repo = ArtistRepository.new
+        artist = repo.find(2)
+
+        expect(artist.name).to eq('Kaytranada')
+        expect(artist.genre).to eq('House')
+    end
 end
