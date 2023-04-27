@@ -1,11 +1,9 @@
-require_relative 'artist'
-require_relative 'database_connection'
+require_relative './artist'
 
 class ArtistRepository
     def all
-        connection = PG.connect({ host: '127.0.0.1', dbname: 'music_library_test' })
         sql = 'SELECT id, name, genre FROM artists;'
-        result_set = connection.exec_params(sql, [])
+        result_set = DatabaseConnection.exec_params(sql, [])
 
         artists = []
 
@@ -29,16 +27,16 @@ class ArtistRepository
         sql_params = [id]
 
         result_set = DatabaseConnection.exec_params(sql, sql_params)
-        
-        record = result_set[id]
+
+        record = result_set[0]
 
             artist = Artist.new
             artist.id = record['id']
             artist.name = record['name']
             artist.genre = record['genre']
 
-        
-        return "#{artist.id} - #{artist.name} - #{artist.genre}"
+            return artist
+
 
         # p result_set
     end

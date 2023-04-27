@@ -1,15 +1,14 @@
 require 'artist_repository'
-require 'pg'
 
 RSpec.describe ArtistRepository do
     
     def reset_artists_table
-        seed_sql = File.read('spec/seeds_artists.sql')
+        seed_sql = File.read('./spec/seeds_artists.sql')
         connection = PG.connect({ host: '127.0.0.1', dbname: 'music_library_test' })
         connection.exec(seed_sql)
     end
 
-    before(:all) do 
+    before(:each) do 
         reset_artists_table
     end
 
@@ -31,7 +30,7 @@ RSpec.describe ArtistRepository do
         expect(artist.genre).to eq("Alt Rap")
     end
 
-    xit 'returns a single artist - Kaytranada' do 
+    it 'returns a single artist - Kaytranada' do 
         repo = ArtistRepository.new
         artist = repo.find(2)
 
