@@ -15,5 +15,5 @@ TRUNCATE TABLE albums RESTART IDENTITY; -- replace with your own table name.
 
 INSERT INTO artists (name, genre) VALUES ('Death Grips', 'Alt Rap');
 
-INSERT INTO albums (title, release_year, artist_id) VALUES ('Guillotine', '2013', '1');
-INSERT INTO albums (title, release_year, artist_id) VALUES ('Flies', '2021', '1');
+INSERT INTO albums (title, release_year, artist_id) VALUES ('The Money Store', '2012', '1');
+INSERT INTO albums (title, release_year, artist_id) VALUES ('Bottomless Pit', '2016', '1');

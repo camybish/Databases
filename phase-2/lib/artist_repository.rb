@@ -40,4 +40,5 @@ class ArtistRepository
 
         # p result_set
     end
+
 end
